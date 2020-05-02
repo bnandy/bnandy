@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Container, Row, Col} from 'react-bootstrap';
 import { SRLWrapper } from "simple-react-lightbox"; // Import SRLWrapper
+import SimpleReactLightbox from "simple-react-lightbox";
 
 import sing from '../images/sing.jpg';
 import la from '../images/la.jpg';
@@ -18,49 +19,51 @@ export default class Images extends Component {
       hideControlsAfter: 1000
     }
     return(
-      <div>
-        <Container fluid>
-          <Row>
-            <Col>
-              <div>
-                <h1 className = "ml-3 mt-3"> Pics of Me </h1>
-              </div>
-            </Col>
-          </Row>
-          <Row className = "pt-3">
-            <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
-              <SRLWrapper options = {options}>
-                <img className = "imgr" src={sing} alt = "sing"/>
-              </SRLWrapper>
-            </Col>
-            <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
-              <SRLWrapper options = {options}>
-                <img className = "imgr" src={la}/>
-              </SRLWrapper>
-            </Col>
-            <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
-              <SRLWrapper options = {options}>
-                <img className = "imgr" src={wood}/>
-              </SRLWrapper>
-            </Col>
-            <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
-              <SRLWrapper options = {options}>
-                <img className = "imgr" src={harry}/>
-              </SRLWrapper>
-            </Col>
-            <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
-              <SRLWrapper options = {options}>
-                <img className = "imgr" src={bhouse}/>
-              </SRLWrapper>
-            </Col>
-            <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
-              <SRLWrapper options = {options}>
-                <img className = "imgr" src={holiday}/>
-              </SRLWrapper>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <SimpleReactLightbox>
+        <div>
+          <Container fluid>
+            <Row>
+              <Col>
+                <div>
+                  <h1 className = "ml-3 mt-3"> Pics of Me </h1>
+                </div>
+              </Col>
+            </Row>
+            <Row className = "pt-3">
+              <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
+                <SRLWrapper options = {options}>
+                  <img className = "imgr" src={sing} alt = "sing"/>
+                </SRLWrapper>
+              </Col>
+              <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
+                <SRLWrapper options = {options}>
+                  <img className = "imgr" src={la}/>
+                </SRLWrapper>
+              </Col>
+              <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
+                <SRLWrapper options = {options}>
+                  <img className = "imgr" src={wood}/>
+                </SRLWrapper>
+              </Col>
+              <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
+                <SRLWrapper options = {options}>
+                  <img className = "imgr" src={harry}/>
+                </SRLWrapper>
+              </Col>
+              <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
+                <SRLWrapper options = {options}>
+                  <img className = "imgr" src={bhouse}/>
+                </SRLWrapper>
+              </Col>
+              <Col lg={3} md={4} sm ={12} className = "pl-4 pb-4 text-center">
+                <SRLWrapper options = {options}>
+                  <img className = "imgr" src={holiday}/>
+                </SRLWrapper>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </SimpleReactLightbox>
     )
   }
 }

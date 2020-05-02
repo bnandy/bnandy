@@ -56,10 +56,7 @@ class App extends Component {
 
     return (
       <div>
-        <ScrollUpButton
-          StopPosition={0}
-          ShowAtPosition={50}
-        />
+
         <div>
           <TabList tabs={tabs} activeTab = {this.state.activeTab} changeTab = {this.changeTab}/>
         </div>
@@ -74,6 +71,10 @@ class App extends Component {
             <Route exact path="/images" component={} />
             <Route exact path="/media" component={} />
             <Route exact path="/projects" component = {} />
+            <ScrollUpButton
+              StopPosition={0}
+              ShowAtPosition={50}
+            />
 
         </BrowserRouter> */}
         <footer className = "pl-4 pt-4">
