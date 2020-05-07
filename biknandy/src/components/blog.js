@@ -17,7 +17,7 @@ export default function Blog(props) {
     <div>
       <div className = "blog">
         {Object.keys(props.data).slice(0).reverse().map((id) => (
-          <Card className = "mb-2" border = "primary" key = {id}>
+          props.data[id].view ? <Card className = "mb-2" border = "primary" key = {id}>
             <Card.Header>{
               formatTime(props.data[id].time)
             }</Card.Header>
@@ -29,7 +29,8 @@ export default function Blog(props) {
                 <p className = " text-primary">{props.data[id].email}</p>
               </Card.Text>
             </Card.Body>
-          </Card>
+          </Card> : <div />
+
         ))}
       </div>
     </div>
