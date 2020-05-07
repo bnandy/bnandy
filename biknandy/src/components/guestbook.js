@@ -43,9 +43,14 @@ export default function Guestbook() {
             <Formik
               validationSchema={schema}
               onSubmit={values => {
-                alert(values)
+                console.log(values)
               }}
               initialValues={{
+                name: "",
+                description: "",
+                message: "",
+                email: "",
+                view: false,
               }}
             >
               {({
@@ -125,7 +130,8 @@ export default function Guestbook() {
                         name="view"
                         label="View for Others"
                         onChange={handleChange}
-                        id="validationFormik0"
+                        id="validationFormik05"
+                        feedback={errors.view}
                       />
                     </Form.Group>
                   </Form.Row>
