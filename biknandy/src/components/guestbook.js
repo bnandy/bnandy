@@ -1,12 +1,13 @@
 import React, { Component, useEffect, useState} from 'react';
-import {Container, Row, Col, Form, Button} from 'react-bootstrap';
+import {Container, Row, Col, Form, Button, Card} from 'react-bootstrap';
 import config from '../config.js';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import Blog from '../components/blog';
 const firebase = require("firebase");
 export default function Guestbook() {
 
-  const [data, setData] = useState([])
+  const [data, setData] = useState(null)
   const [rend, setRend] = useState(true)
 
   const schema = yup.object({
@@ -30,6 +31,23 @@ export default function Guestbook() {
       })
   },[rend])
 
+  const submitForm = (formData) => {
+    firebase.database().ref('data').push().set({
+      time: firebase.database.ServerValue.TIMESTAMP,
+      name: formData.name,
+      description: formData.description,
+      message: formData.message,
+      email: formData.email,
+      view: formData.view
+    })
+  }
+
+  let blog;
+
+  if (data != null){
+    blog = <Blog data= {data}/>;
+  }
+
   return(
     <div>
       <Container fluid>
@@ -39,111 +57,116 @@ export default function Guestbook() {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Formik
-              validationSchema={schema}
-              onSubmit={values => {
-                console.log(values)
-              }}
-              initialValues={{
-                name: "",
-                description: "",
-                message: "",
-                email: "",
-                view: false,
-              }}
-            >
-              {({
-                handleSubmit,
-                handleChange,
-                handleBlur,
-                values,
-                touched,
-                isValid,
-                errors,
-              }) => (
-                <Form noValidate onSubmit={handleSubmit}>
-                  <Form.Row>
-                    <Form.Group as={Col} md="4" controlId="validationFormik01">
-                      <Form.Label>Name</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="name"
-                        value={values.name}
-                        onChange={handleChange}
-                        isInvalid={!!errors.name}
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        {errors.name}
-                      </Form.Control.Feedback>
-                    </Form.Group>
+          <Col className = "mr-5 mb-2" xs={12} sm={6}>
+            <Card border = "primary">
+              <Card.Body>
+                <Formik
+                  validationSchema={schema}
+                  onSubmit={values => {
+                    submitForm(values)
+                  }}
+                  initialValues={{
+                    name: "",
+                    description: "",
+                    message: "",
+                    email: "",
+                    view: false,
+                  }}
+                >
+                  {({
+                    handleSubmit,
+                    handleChange,
+                    handleBlur,
+                    values,
+                    touched,
+                    isValid,
+                    errors,
+                  }) => (
+                    <Form noValidate onSubmit={handleSubmit}>
+                      <Form.Row>
+                        <Form.Group as={Col} controlId="validationFormik01">
+                          <Form.Label>Name</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="name"
+                            value={values.name}
+                            onChange={handleChange}
+                            isInvalid={!!errors.name}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.name}
+                          </Form.Control.Feedback>
+                        </Form.Group>
 
-                  </Form.Row>
-                  <Form.Row>
-                    <Form.Group as={Col} md="4" controlId="validationFormik02">
-                      <Form.Label>Description</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="description"
-                        value={values.description}
-                        onChange={handleChange}
-                        isInvalid={!!errors.description}
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        {errors.description}
-                      </Form.Control.Feedback>
-                    </Form.Group>
-                  </Form.Row>
-                  <Form.Row>
-                    <Form.Group as={Col} md="4" controlId="validationFormik03">
-                      <Form.Label>Message</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="message"
-                        value={values.message}
-                        onChange={handleChange}
-                        isInvalid={!!errors.message}
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        {errors.message}
-                      </Form.Control.Feedback>
-                    </Form.Group>
-                  </Form.Row>
-                  <Form.Row>
-                    <Form.Group as={Col} md="4" controlId="validationFormik04">
-                      <Form.Label>Email</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="email"
-                        value={values.email}
-                        onChange={handleChange}
-                        isInvalid={!!errors.email}
-                      />
-                      <Form.Control.Feedback type="invalid">
-                        {errors.email}
-                      </Form.Control.Feedback>
-                    </Form.Group>
-                  </Form.Row>
-                  <Form.Row>
-                    <Form.Group>
-                      <Form.Check
-                        name="view"
-                        label="View for Others"
-                        onChange={handleChange}
-                        id="validationFormik05"
-                        feedback={errors.view}
-                      />
-                    </Form.Group>
-                  </Form.Row>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Group as={Col} controlId="validationFormik02">
+                          <Form.Label>Brief Description</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="description"
+                            value={values.description}
+                            onChange={handleChange}
+                            isInvalid={!!errors.description}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.description}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Group as={Col} controlId="validationFormik03">
+                          <Form.Label>Message</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="message"
+                            value={values.message}
+                            onChange={handleChange}
+                            isInvalid={!!errors.message}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.message}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Group as={Col} controlId="validationFormik04">
+                          <Form.Label>Email</Form.Label>
+                          <Form.Control
+                            type="text"
+                            name="email"
+                            value={values.email}
+                            onChange={handleChange}
+                            isInvalid={!!errors.email}
+                          />
+                          <Form.Control.Feedback type="invalid">
+                            {errors.email}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Form.Row>
+                      <Form.Row>
+                        <Form.Group>
+                          <Form.Check
+                            name="view"
+                            label="Select to make public"
+                            onChange={handleChange}
+                            id="validationFormik05"
+                            feedback={errors.view}
+                          />
+                        </Form.Group>
+                      </Form.Row>
 
-                  <Button type="submit">Submit form</Button>
-                </Form>
-              )}
-            </Formik>
+                      <Button type="submit">Submit form</Button>
+                    </Form>
+                  )}
+                </Formik>
+              </Card.Body>
+            </Card>
+
           </Col>
-        </Row>
-        <Row className = "pt-3 pl-3 mr-md-0 mr-3 justify-content-md-center">
-          {data}
+          <Col className = "ml-2" xs ={12} sm = {4}>
+            {blog}
+          </Col>
         </Row>
       </Container>
     </div>

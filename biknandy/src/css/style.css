@@ -25,6 +25,10 @@
     float: none;
     margin: 0 auto;
 }
+.blog{
+  max-height: 75vh;
+  overflow-y: auto;
+}
 
 /* modal hover */
 .img1 {

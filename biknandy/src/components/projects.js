@@ -74,9 +74,6 @@ export default class Projects extends Component {
 
             </Col>
           </Row>
-          <Row>
-
-          </Row>
         </Container>
       </div>
     )
