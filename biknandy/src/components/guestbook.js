@@ -53,11 +53,11 @@ export default function Guestbook() {
       <Container fluid>
         <Row>
           <Col>
-            <h1 className = "ml-3 mt-3"> Guestbook </h1>
+            <h1 className = "ml-3 mt-3"> Send me a message!  </h1>
           </Col>
         </Row>
         <Row>
-          <Col className = "mr-5 mb-2" xs={12} sm={6}>
+          <Col className = "ml-3 mr-5 mb-2" xs={12} sm={6}>
             <Card border = "primary">
               <Card.Body>
                 <Formik
@@ -89,6 +89,7 @@ export default function Guestbook() {
                           <Form.Control
                             type="text"
                             name="name"
+                            placeholder="Your name here!"
                             value={values.name}
                             onChange={handleChange}
                             isInvalid={!!errors.name}
@@ -105,6 +106,7 @@ export default function Guestbook() {
                           <Form.Control
                             type="text"
                             name="description"
+                            placeholder="Describe yourself (optional)"
                             value={values.description}
                             onChange={handleChange}
                             isInvalid={!!errors.description}
@@ -120,6 +122,7 @@ export default function Guestbook() {
                           <Form.Control
                             type="text"
                             name="message"
+                            placeholder="Type something fun!"
                             value={values.message}
                             onChange={handleChange}
                             isInvalid={!!errors.message}
@@ -135,6 +138,7 @@ export default function Guestbook() {
                           <Form.Control
                             type="text"
                             name="email"
+                            placeholder="Will not be posted (optional)"
                             value={values.email}
                             onChange={handleChange}
                             isInvalid={!!errors.email}

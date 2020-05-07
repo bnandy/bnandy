@@ -26,7 +26,6 @@ export default function Blog(props) {
             <Card.Subtitle className="mb-2 text-muted">{props.data[id].description}</Card.Subtitle>
               <Card.Text>
                 <p className = "mb-1">{props.data[id].message}</p><br/>
-                <p className = " text-primary">{props.data[id].email}</p>
               </Card.Text>
             </Card.Body>
           </Card> : <div />
