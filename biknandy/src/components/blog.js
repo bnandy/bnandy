@@ -17,16 +17,14 @@ export default function Blog(props) {
     <div>
       <div className = "blog">
         {Object.keys(props.data).slice(0).reverse().map((id) => (
-          props.data[id].view ? <Card className = "mb-2" border = "primary" key = {id}>
+          props.data[id].view ? <Card className = "mb-2" border = "danger" key = {id}>
             <Card.Header>{
               formatTime(props.data[id].time)
             }</Card.Header>
             <Card.Body>
-            <Card.Title><h4>{props.data[id].name}</h4></Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{props.data[id].description}</Card.Subtitle>
-              <Card.Text>
-                <p className = "mb-1">{props.data[id].message}</p><br/>
-              </Card.Text>
+              <Card.Title className = "mb-1"><h4>{props.data[id].name}</h4></Card.Title>
+              <Card.Subtitle className="mb-3 text-muted">{props.data[id].description}</Card.Subtitle>
+              <p>{props.data[id].message}</p>
             </Card.Body>
           </Card> : <div />
 

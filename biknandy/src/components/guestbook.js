@@ -40,6 +40,8 @@ export default function Guestbook() {
       email: formData.email,
       view: formData.view
     })
+
+    alert("Form submitted!")
   }
 
   let blog;
@@ -89,7 +91,7 @@ export default function Guestbook() {
                           <Form.Control
                             type="text"
                             name="name"
-                            placeholder="Your name here!"
+                            placeholder="Your name here"
                             value={values.name}
                             onChange={handleChange}
                             isInvalid={!!errors.name}
@@ -152,7 +154,7 @@ export default function Guestbook() {
                         <Form.Group>
                           <Form.Check
                             name="view"
-                            label="Select to make public"
+                            label="Select to make your post public"
                             onChange={handleChange}
                             id="validationFormik05"
                             feedback={errors.view}
