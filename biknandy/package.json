@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "firebase": "^7.14.2",
+    "formik": "^2.1.4",
     "gh-pages": "^2.2.0",
     "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
@@ -18,7 +19,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-scroll-up-button": "^1.6.4",
-    "simple-react-lightbox": "^2.7.3-2"
+    "simple-react-lightbox": "^2.7.3-2",
+    "yup": "^0.28.5"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -13,7 +13,8 @@ import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 import Home from './components/home';
 import Projects from './components/projects';
 import Media from './components/media';
-import Images from './components/images'
+import Images from './components/images';
+import Guestbook from './components/guestbook';
 
 
 class App extends Component {
@@ -38,7 +39,8 @@ class App extends Component {
       {id: 1, title: "Home"},
       {id: 2, title: "Images"},
       {id: 3, title: "Media"},
-      {id: 4, title: "Projects"}
+      {id: 4, title: "Projects"},
+      {id: 5, title: "Guestbook"}
     ]
 
     let page;
@@ -52,6 +54,8 @@ class App extends Component {
       page = <Media />;
     } else if (this.state.activeTab == 4){
       page = <Projects />;
+    } else if (this.state.activeTab == 5){
+      page = <Guestbook />;
     }
 
     return (
