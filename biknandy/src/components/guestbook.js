@@ -11,8 +11,8 @@ export default function Guestbook() {
   const [rend, setRend] = useState(true)
 
   const schema = yup.object({
-    name: yup.string().max(100).required(),
-    description: yup.string(),
+    name: yup.string().min(5).max(20).required(),
+    description: yup.string().max(100),
     message: yup.string().min(15).max(500).required(),
     email: yup.string().email(),
     view: yup.bool(),
@@ -64,8 +64,9 @@ export default function Guestbook() {
               <Card.Body>
                 <Formik
                   validationSchema={schema}
-                  onSubmit={values => {
-                    submitForm(values)
+                  onSubmit={(values, {resetForm}) => {
+                    submitForm(values);
+                    resetForm();
                   }}
                   initialValues={{
                     name: "",
