@@ -8,8 +8,11 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+<<<<<<< HEAD
     "firebase": "^7.14.2",
     "formik": "^2.1.4",
+=======
+>>>>>>> parent of 7e72367d... Updates
     "gh-pages": "^2.2.0",
     "jquery": "^3.5.0",
     "popper.js": "^1.16.1",
@@ -19,9 +22,13 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-scroll-up-button": "^1.6.4",
+<<<<<<< HEAD
     "react-scrollspy": "^3.4.2",
     "simple-react-lightbox": "^2.7.3-2",
     "yup": "^0.28.5"
+=======
+    "simple-react-lightbox": "^2.7.3-2"
+>>>>>>> parent of 7e72367d... Updates
   },
   "scripts": {
     "start": "react-scripts start",
