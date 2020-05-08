@@ -74,12 +74,6 @@ export default class Projects extends Component {
 
             </Col>
           </Row>
-<<<<<<< HEAD
-=======
-          <Row>
-
-          </Row>
->>>>>>> parent of 7e72367d... Updates
         </Container>
       </div>
     )

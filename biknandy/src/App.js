@@ -13,12 +13,8 @@ import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 import Home from './components/home';
 import Projects from './components/projects';
 import Media from './components/media';
-<<<<<<< HEAD
 import Images from './components/images';
 import Guestbook from './components/guestbook';
-=======
-import Images from './components/images'
->>>>>>> parent of 7e72367d... Updates
 
 
 class App extends Component {
@@ -43,12 +39,8 @@ class App extends Component {
       {id: 1, title: "Home"},
       {id: 2, title: "Images"},
       {id: 3, title: "Media"},
-<<<<<<< HEAD
       {id: 4, title: "Projects"},
       {id: 5, title: "Guestbook"}
-=======
-      {id: 4, title: "Projects"}
->>>>>>> parent of 7e72367d... Updates
     ]
 
     let page;
@@ -62,23 +54,16 @@ class App extends Component {
       page = <Media />;
     } else if (this.state.activeTab == 4){
       page = <Projects />;
-<<<<<<< HEAD
     } else if (this.state.activeTab == 5){
       page = <Guestbook />;
-=======
->>>>>>> parent of 7e72367d... Updates
     }
 
     return (
       <div>
-<<<<<<< HEAD
-
-=======
         <ScrollUpButton
           StopPosition={0}
           ShowAtPosition={50}
         />
->>>>>>> parent of 7e72367d... Updates
         <div>
           <TabList tabs={tabs} activeTab = {this.state.activeTab} changeTab = {this.changeTab}/>
         </div>
@@ -93,13 +78,10 @@ class App extends Component {
             <Route exact path="/images" component={} />
             <Route exact path="/media" component={} />
             <Route exact path="/projects" component = {} />
-<<<<<<< HEAD
             <ScrollUpButton
               StopPosition={0}
               ShowAtPosition={50}
             />
-=======
->>>>>>> parent of 7e72367d... Updates
 
         </BrowserRouter> */}
         <footer className = "pl-4 pt-4">
