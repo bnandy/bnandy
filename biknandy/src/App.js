@@ -15,6 +15,7 @@ import Projects from './components/projects';
 import Media from './components/media';
 import Images from './components/images';
 import Guestbook from './components/guestbook';
+import Movies from './components/movies';
 
 
 class App extends Component {
@@ -40,7 +41,8 @@ class App extends Component {
       {id: 2, title: "Images"},
       {id: 3, title: "Media"},
       {id: 4, title: "Projects"},
-      {id: 5, title: "Guestbook"}
+      {id: 5, title: "Guestbook"},
+      {id: 6, title: "Movies"}
     ]
 
     let page;
@@ -56,6 +58,8 @@ class App extends Component {
       page = <Projects />;
     } else if (this.state.activeTab == 5){
       page = <Guestbook />;
+    } else if (this.state.activeTab == 6){
+      page = <Movies />;
     }
 
     return (
