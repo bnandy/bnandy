@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route} from "react-router-dom";
 // import NavBar from './components/navbar';
-import './css/style.css';
-import TabList from './components/tablist';
+import './css/style.css'
+import TabList from './components/tablist'
 import 'bootstrap/dist/css/bootstrap.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
