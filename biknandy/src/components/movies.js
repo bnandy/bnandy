@@ -12,8 +12,6 @@ export default function Movies() {
   const [modalInfo, setModalInfo] = useState({})
 
   const handleClose = () => setShow(false);
-
-  //click handler for image
   const handleShow = (movieObj) => {
     setModalInfo(movieObj);
     setShow(true);
