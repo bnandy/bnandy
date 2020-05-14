@@ -120,3 +120,10 @@
 #myBtn:hover {
   background-color: #555; /* Add a dark-grey background on hover */
 }
+
+/* Hover on image */
+.imgHov:hover {
+    background-color:#000;
+    opacity:0.5;
+    border-radius:30px;
+}
