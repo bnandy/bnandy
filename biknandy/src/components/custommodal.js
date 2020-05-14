@@ -10,13 +10,13 @@ export default function CustomModal(props) {
         <Modal.Title>{props.movieData.Title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div className = "text-center pb-2">
-          Directed by {props.movieData.Director}
+        <div className = "text-center pb-1">
+          <p><strong>Directed by {props.movieData.Director}</strong></p>
         </div>
         <div className = "text-center">
           <Image src={props.movieData.Poster} fluid />
         </div>
-        <div className = "mt-2">
+        <div className = "mt-3">
           <p><em>{props.movieData.Plot}</em></p>
         </div>
       </Modal.Body>
